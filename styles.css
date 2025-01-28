@@ -1,116 +1,143 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #bebbbd;
+/* Style global du body : */
+body { 
+  margin: 0; /* Enlève la marge par défaut du navigateur */
+  font-family: Arial, sans-serif; /* Définit la police de caractères */
+  background-color: #bebbbd; /* Définit la couleur de fond de la page */
 }
 
+/* Style pour le container, qui est un conteneur flexible avec un espacement interne et un gap */
 .container {
-  display: flex;
-  min-height: 100vh;
-  gap: 16px;
-  padding: 16px;
+  display: flex; /* Utilise le modèle de mise en page flexbox */
+  min-height: 100vh; /* Définit une hauteur minimale de 100% de la hauteur de la fenêtre */
+  gap: 16px; /* Espacement entre les éléments du container */
+  padding: 16px; /* Padding autour du contenu dans le container */
 }
 
+/* Style pour la sidebar (barre latérale) */
 .sidebar {
-  width: 64px;
-  background-color: #4d4b4c;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px 0;
-  gap: 16px;
-  position: relative;
+  width: 80px; /* Largeur fixe de la sidebar */
+  background-color: #4d4b4c; /* Couleur de fond de la sidebar */
+  border-radius: 8px; /* Coins arrondis */
+  display: flex; /* Utilisation de flexbox pour l'alignement interne */
+  flex-direction: column; /* Organise les éléments enfants en colonne */
+  align-items: center; /* Centre les éléments horizontalement */
+  padding: 16px 0; /* Padding vertical à 16px */
+  gap: 16px; /* Espacement entre les éléments de la sidebar */
+  position: relative; /* Position relative pour pouvoir positionner des éléments enfants de manière absolue */
+}
+.sidebar1 {
+  width: 80px; /* Largeur fixe de la sidebar */
+  background-color: #4d4b4c; /* Couleur de fond de la sidebar */
+  border-radius: 8px; /* Coins arrondis */
+  display: flex; /* Utilisation de flexbox pour l'alignement interne */
+  flex-direction: column; /* Organise les éléments enfants en colonne */
+  align-items: center; /* Centre les éléments horizontalement */
+  padding: 16px 0; /* Padding vertical à 16px */
+  gap: 16px; /* Espacement entre les éléments de la sidebar */
+  position: relative; /* Position relative pour pouvoir positionner des éléments enfants de manière absolue */
 }
 
+/* Style des boutons dans la sidebar */
 .sidebar button {
-  width: 48px;
-  height: 48px;
-  border: none;
-  border-radius: 50%;
-  background-color: #f9a8d4;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
+  width: 48px; /* Largeur du bouton */
+  height: 48px; /* Hauteur du bouton */
+  border: none; /* Pas de bordure */
+  border-radius: 50%; /* Boutons ronds */
+  background-color: #f9a8d4; /* Couleur de fond des boutons */
+  color: white; /* Couleur du texte des boutons */
+  font-size: 24px; /* Taille du texte des boutons */
+  cursor: pointer; /* Curseur en forme de main lors du survol */
 }
 
+/* Style du menu burger qui sera caché par défaut */
 .burger-menu {
-  display: none;
-  flex-direction: column;
-  background-color: #fde8f0;
-  border-radius: 8px;
-  position: absolute;
-  top: 64px;
-  left: 16px;
-  width: 200px;
-  padding: 16px;
-  gap: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  display: none; /* Menu caché par défaut */
+  flex-direction: column; /* Affichage des éléments en colonne */
+  background-color: #fde8f0; /* Couleur de fond du menu */
+  border-radius: 8px; /* Coins arrondis */
+  position: absolute; /* Position absolue pour le positionner par rapport à son parent */
+  top: 64px; /* Décalage du haut */
+  left: 16px; /* Décalage de la gauche */
+  width: 200px; /* Largeur du menu */
+  padding: 16px; /* Padding interne du menu */
+  gap: 8px; /* Espacement entre les éléments */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre autour du menu */
 }
 
+/* Style des boutons à l'intérieur du menu burger */
 .burger-menu button {
-  width: 100%;
-  height: 40px;
-  border: none;
-  border-radius: 8px;
-  background-color: #f9a8d4;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
+  width: 100%; /* Le bouton prend toute la largeur du menu */
+  height: 40px; /* Hauteur du bouton */
+  border: none; /* Pas de bordure */
+  border-radius: 8px; /* Coins arrondis */
+  background-color: #f9a8d4; /* Couleur de fond des boutons */
+  color: white; /* Couleur du texte des boutons */
+  font-size: 16px; /* Taille du texte des boutons */
+  cursor: pointer; /* Curseur en forme de main */
 }
 
+/* Classe pour afficher le menu burger lorsqu'il est activé */
 .burger-active .burger-menu {
-  display: flex;
+  display: flex; /* Affiche le menu burger lorsque la classe "burger-active" est ajoutée */
 }
 
+/* Style pour la zone principale de la page */
 .main {
-  flex: 1;
-  position: relative;
+  flex: 1; /* La zone principale prend toute la place restante dans le conteneur */
+  position: relative; /* Position relative pour le positionnement d'autres éléments */
 }
 
+/* Style du titre */
 .title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #4a4a4a;
-  margin-bottom: 16px;
+  font-size: 24px; /* Taille du texte */
+  font-weight: bold; /* Met le texte en gras */
+  color: #4a4a4a; /* Couleur du texte */
+  margin-bottom: 16px; /* Espacement en bas du titre */
 }
 
+/* Style pour les labels sous forme de boutons */
 .labels {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 24px;
+  display: flex; /* Utilise flexbox pour afficher les labels en ligne */
+  gap: 8px; /* Espacement entre les labels */
+  margin-bottom: 24px; /* Espacement en bas des labels */
 }
 
+/* Style des boutons dans la section des labels */
 .labels button {
-  background-color: #e2e8f0;
-  border: none;
-  border-radius: 16px;
-  padding: 8px 16px;
-  cursor: pointer;
+  background-color: #e2e8f0; /* Couleur de fond des boutons */
+  border: none; /* Pas de bordure */
+  border-radius: 16px; /* Coins arrondis */
+  padding: 8px 16px; /* Padding autour du texte des boutons */
+  cursor: pointer; /* Curseur en forme de main */
 }
 
+/* Style pour la grille (grid) de cartes */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
+  display: grid; /* Utilisation de la mise en page en grille */
+  grid-template-columns: repeat(5, 1fr); /* Définit 5 colonnes de taille égale */
+  gap: 16px; /* Espacement entre les éléments de la grille */
 }
 
+/* Style des cartes dans la grille */
 .card {
-  text-align: center;
-  background-color: white;
-  border-radius: 8px;
-  padding: 16px;
+  text-align: center; /* Centre le contenu des cartes */
+  background-color: white; /* Couleur de fond des cartes */
+  border-radius: 8px; /* Coins arrondis */
+  padding: 16px; /* Padding interne des cartes */
 }
 
+/* Style pour la barre de recherche */
 .search-bar {
-  position: absolute;
-  top: 16px;
-  right: 16px;
+  position: absolute; /* Position absolue pour la placer par rapport à son parent */
+  top: 16px; /* Décalage du haut */
+  right: 16px; /* Décalage de la droite */
 }
 
+/* Style des champs de saisie dans la barre de recherche */
 .search-bar input {
-  padding: 8px;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  outline: none;
+  padding: 8px; /* Padding interne du champ de saisie */
+  border: 1px solid #e2e8f0; /* Bordure autour du champ */
+  border-radius: 16px; /* Coins arrondis */
+  outline: none; /* Pas de contour au focus */
 }
