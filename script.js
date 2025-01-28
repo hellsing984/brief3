@@ -1,7 +1,7 @@
   // JavaScript to toggle the menu
-  const burgerButton = document.getElementById('burgerButton');
-  const menu = document.getElementById('menu');
+  const burgerButton = document.getElementById('burger-button');
+  const sidebar = document.querySelector('.sidebar');
 
   burgerButton.addEventListener('click', () => {
-    menu.classList.toggle('open');
+    sidebar.classList.toggle('burger-active');
   });

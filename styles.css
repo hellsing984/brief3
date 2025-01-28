@@ -1,123 +1,116 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fef4f8;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fef4f8;
-    }
+.container {
+  display: flex;
+  min-height: 100vh;
+  gap: 16px;
+  padding: 16px;
+}
 
-    .container {
-      display: flex;
-      min-height: 100vh;
-      gap: 16px;
-      padding: 16px;
-    }
+.sidebar {
+  width: 64px;
+  background-color: #fde8f0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+  gap: 16px;
+  position: relative;
+}
 
-    .sidebar {
-      width: 64px;
-      background-color: #fde8f0;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 16px 0;
-      gap: 16px;
-    }
+.sidebar button {
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background-color: #f9a8d4;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
 
-    .sidebar button {
-      width: 48px;
-      height: 48px;
-      border: none;
-      border-radius: 50%;
-      background-color: #f9a8d4;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-    }
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  background-color: #fde8f0;
+  border-radius: 8px;
+  position: absolute;
+  top: 64px;
+  left: 16px;
+  width: 200px;
+  padding: 16px;
+  gap: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-    .main {
-      flex: 1;
-    }
+.burger-menu button {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f9a8d4;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-    .title {
-      font-size: 24px;
-      font-weight: bold;
-      color: #4a4a4a;
-      margin-bottom: 16px;
-    }
+.burger-active .burger-menu {
+  display: flex;
+}
 
-    .labels {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
+.main {
+  flex: 1;
+  position: relative;
+}
 
-    .labels button {
-      background-color: #e2e8f0;
-      border: none;
-      border-radius: 16px;
-      padding: 8px 16px;
-      cursor: pointer;
-    }
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4a4a4a;
+  margin-bottom: 16px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-    }
+.labels {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
 
-    .card {
-      text-align: center;
-      background-color: white;
-      border-radius: 8px;
-      padding: 16px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+.labels button {
+  background-color: #e2e8f0;
+  border: none;
+  border-radius: 16px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
 
-    .avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      margin: 0 auto 8px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
 
-    .avatar-pink { background-color: #f56998; }
-    .avatar-red { background-color: #f87171; }
-    .avatar-purple { background-color: #a78bfa; }
-    .avatar-blue { background-color: #60a5fa; }
-    .avatar-indigo { background-color: #818cf8; }
-    .avatar-teal { background-color: #5eead4; }
-    .avatar-cyan { background-color: #22d3ee; }
-    .avatar-gray { background-color: #a8a8a8; }
+.card {
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+}
 
-    .card p {
-      margin: 4px 0;
-    }
+.search-bar {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
 
-    .right-sidebar {
-      width: 192px;
-      background-color: #fde8f0;
-      border-radius: 8px;
-      padding: 16px;
-      overflow-y: auto;
-      height: calc(100vh - 32px);
-    }
-
-    .list-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .list-avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: #f9a8d4;
-      margin-right: 8px;
-    }
-
-    .checkbox {
-      margin-left: auto;
-    }
- 
- 
+.search-bar input {
+  padding: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  outline: none;
+}
