@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #f8f9fa;
+  }
+
+  /* Menu container */
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden initially */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+  }
+
+  .menu.open {
+    left: 0; /* Slides into view */
+  }
+
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .menu ul li {
+    margin: 20px 0;
+  }
+
+  .menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .menu ul li a:hover {
+    text-decoration: underline;
+  }
+
+  /* Menu burger button */
+  .burger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .content {
+    margin-left: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+
+  .gallery-item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .gallery-item p {
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #f1f1f1;
+  }
