@@ -141,3 +141,9 @@ body {
   border-radius: 16px; /* Coins arrondis */
   outline: none; /* Pas de contour au focus */
 }
+.apprenant-card img {
+  width: 100px; /* Ajuste la largeur */
+  height: 100px; /* Ajuste la hauteur */
+  object-fit: cover; /* Garde les proportions tout en remplissant le cadre */
+  border-radius: 50%; /* Optionnel : donne un effet arrondi (comme un avatar) */
+}
