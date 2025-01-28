@@ -1,97 +1,123 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background-color: #f8f9fa;
-  }
 
-  /* Menu container */
-  .menu {
-    position: fixed;
-    top: 0;
-    left: -250px; /* Hidden initially */
-    width: 250px;
-    height: 100%;
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    transition: left 0.3s ease;
-  }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fef4f8;
+    }
 
-  .menu.open {
-    left: 0; /* Slides into view */
-  }
+    .container {
+      display: flex;
+      min-height: 100vh;
+      gap: 16px;
+      padding: 16px;
+    }
 
-  .menu ul {
-    list-style-type: none;
-    padding: 0;
-  }
+    .sidebar {
+      width: 64px;
+      background-color: #fde8f0;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 0;
+      gap: 16px;
+    }
 
-  .menu ul li {
-    margin: 20px 0;
-  }
+    .sidebar button {
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 50%;
+      background-color: #f9a8d4;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
 
-  .menu ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-  }
+    .main {
+      flex: 1;
+    }
 
-  .menu ul li a:hover {
-    text-decoration: underline;
-  }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4a4a4a;
+      margin-bottom: 16px;
+    }
 
-  /* Menu burger button */
-  .burger {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 30px;
-    height: 30px;
-    background-color: #333;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 1000;
-  }
+    .labels {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
 
-  .content {
-    margin-left: 20px;
-    padding: 20px;
-    text-align: center;
-  }
+    .labels button {
+      background-color: #e2e8f0;
+      border: none;
+      border-radius: 16px;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
 
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    margin: 0 auto;
-    max-width: 1000px;
-  }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
 
-  .gallery-item {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-  }
+    .card {
+      text-align: center;
+      background-color: white;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-  .gallery-item img {
-    width: 100%;
-    height: auto;
-  }
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      margin: 0 auto 8px;
+    }
 
-  .gallery-item p {
-    margin: 0;
-    padding: 10px;
-    font-size: 14px;
-    background-color: #f1f1f1;
-  }
+    .avatar-pink { background-color: #f56998; }
+    .avatar-red { background-color: #f87171; }
+    .avatar-purple { background-color: #a78bfa; }
+    .avatar-blue { background-color: #60a5fa; }
+    .avatar-indigo { background-color: #818cf8; }
+    .avatar-teal { background-color: #5eead4; }
+    .avatar-cyan { background-color: #22d3ee; }
+    .avatar-gray { background-color: #a8a8a8; }
+
+    .card p {
+      margin: 4px 0;
+    }
+
+    .right-sidebar {
+      width: 192px;
+      background-color: #fde8f0;
+      border-radius: 8px;
+      padding: 16px;
+      overflow-y: auto;
+      height: calc(100vh - 32px);
+    }
+
+    .list-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .list-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #f9a8d4;
+      margin-right: 8px;
+    }
+
+    .checkbox {
+      margin-left: auto;
+    }
+ 
+ 
