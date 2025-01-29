@@ -170,6 +170,9 @@ body {
   border-radius: 8px; /* Coins arrondis */
   padding: 16px; /* Padding interne des cartes */
 }
+.hidden {
+  display: none;
+}
 
 /* Style pour la barre de recherche */
 .search-bar {

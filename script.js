@@ -91,10 +91,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
                                           <p class="promo">Promotion: ${promotionName}</p>
                                           <p class="skills">${competencesElements.join('')}</p>
                                           <div class="links">
-                                              <a href="${apprenant.urlgit}" target="_blank"><img src="logoGithub.svg"></a>
-                                              <a href="${apprenant.linkedin}" target="_blank"><img src="logoLinkedin.svg"></a>
-                                              <a href="${apprenant.cv}" target="_blank"><img src="logoCV.svg"></a>
-                                              <a href="${apprenant.portfolio}" target="_blank"><img src="logoPortfolio.svg"></a>
+                                              <a href="${apprenant.urlgit}" target="_blank"><img src="image/gith.png"></a>
+                                               <a href="${apprenant.linkedin}" target="_blank"><img src="image/lindk.png" alt="LinkedIn Logo"></a>
+                                              <a href="${apprenant.cv}" target="_blank"><img src="image/CV.jpg"></a>
+                                              <a href="${apprenant.portfolio}" target="_blank"><img src="image/PF.png"></a>
                                           </div>
                                       </div>
                                   </div>
@@ -111,28 +111,44 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('search');
     const checkboxes = document.querySelectorAll('.checkbox');
     const cards = document.querySelectorAll('.card');
-  
+
     function filterCards() {
-      const searchText = searchInput.value.toLowerCase();
-      const selectedYears = Array.from(checkboxes)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value);
-  
-      cards.forEach(card => {
-        const year = card.getAttribute('data-year');
-        const text = card.textContent.toLowerCase();
-  
-        if (selectedYears.includes(year) && text.includes(searchText)) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+        const selectedYears = Array.from(checkboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value);
+
+        cards.forEach(card => {
+            const year = card.getAttribute('data-year');
+            
+            // Vérifie si la carte a un data-year valide
+            if (year) {
+                const isVisible = selectedYears.length === 0 || selectedYears.includes(year);
+                card.style.display = isVisible ? '' : 'none';
+            } else {
+                // Si aucune année n'est définie, cacher par défaut
+                card.style.display = 'none';
+            }
+        });
     }
-    searchInput.addEventListener('input', filterCards);
     checkboxes.forEach(checkbox => checkbox.addEventListener('change', filterCards));
-  });
-  
+    // Lancer une première fois au chargement
+    filterCards();
+});
+
+/*  barre de recherche*/
+document.getElementById('search').addEventListener('input', function() {
+    let searchValue = this.value.toLowerCase();
+    let cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        let title = card.getAttribute('data-title').toLowerCase();
+        if (title.includes(searchValue)) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+});
+
