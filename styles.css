@@ -57,23 +57,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre autour du menu */
 }
 
-/* Style des boutons à l'intérieur du menu burger */
-.burger-menu button {
-  width: 100%; /* Le bouton prend toute la largeur du menu */
-  height: 40px; /* Hauteur du bouton */
-  border: none; /* Pas de bordure */
-  border-radius: 8px; /* Coins arrondis */
-  background-color: #f9a8d4; /* Couleur de fond des boutons */
-  color: white; /* Couleur du texte des boutons */
-  font-size: 16px; /* Taille du texte des boutons */
-  cursor: pointer; /* Curseur en forme de main */
-}
-
-/* Classe pour afficher le menu burger lorsqu'il est activé */
-.burger-active .burger-menu {
-  display: flex; /* Affiche le menu burger lorsque la classe "burger-active" est ajoutée */
-}
-
 /* Style pour la zone principale de la page */
 .main {
   flex: auto; /* La zone principale prend toute la place restante dans le conteneur */
