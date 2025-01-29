@@ -47,10 +47,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
                                     <p class="promo">Promotion: ${promotionName}</p>
                                     <p class="skills">${competencesElements.join('')}</p>
                                     <div class="links">
-                                        <a href="${apprenant.urlgit}" target="_blank"><img src="logoGithub.svg"></a>
-                                        <a href="${apprenant.linkedin}" target="_blank"><img src="logoLinkedin.svg"></a>
-                                        <a href="${apprenant.cv}" target="_blank"><img src="logoCV.svg"></a>
-                                        <a href="${apprenant.portfolio}" target="_blank"><img src="logoPortfolio.svg"></a>
+                                        <a href="${apprenant.urlgit}" target="_blank"><img src="image/gith.png"></a>
+                                        <a href="${apprenant.linkedin}" target="_blank"><img src="image/lindk.png"></a>
+                                        <a href="${apprenant.cv}" target="_blank"><img src="image/CV.jpg"></a>
+                                        <a href="${apprenant.portfolio}" target="_blank"><img src="image/PF.png"></a>
                                     </div>
                                 `;
 
