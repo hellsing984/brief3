@@ -1,25 +1,26 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPE html> 
+<html lang="fr"> 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Menu Burger</title>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="stylesheet" href="styles.css"> 
+  <title>Menu Burger</title> 
 </head>
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <button id="burger-button">☰</button>
-      <div class="burger-menu">
+  <div class="container"> <!-- Conteneur principal pour l'ensemble du contenu -->
+    <div class="sidebar"> <!-- Barre latérale gauche -->
+      <button id="burger-button">☰</button> <!-- Bouton pour ouvrir le menu burger -->
+      <div class="burger-menu"> <!-- Menu déroulant du burger (pour le moment vide) -->
       </div>
-      <button>+</button>
+      <button>+</button> 
+      <button>+</button> 
     </div>
-    <div class="main">
-      <div class="search-bar">
-        <input type="text" id="search" placeholder="recherche...">
+    <div class="main"> <!-- Contenu principal de la page -->
+      <div class="search-bar"> <!-- Barre de recherche -->
+        <input type="text" id="search" placeholder="recherche..."> <!-- Champ de texte pour la recherche -->
       </div>
-      <div class="title">Title</div>
-      <div class="labels">
+      <div class="title">Title</div> <!-- Titre principal de la page -->
+      <div class="labels"> <!-- Liste de labels sous forme de boutons -->
         <button>compétence</button>
         <button>Css3</button>
         <button>Html5</button>
@@ -28,28 +29,28 @@
         <button>Tailwind</button>
       </div>
       <!-- Cartes d'utilisateur -->
-     <div class="grid" id="apprenant-cards"></div>
+     <div class="grid" id="apprenant-cards"></div> <!-- Grille pour afficher des cartes d'utilisateurs -->
       </div>
       <!-- Barre latérale droite -->
-      <div class="sidebar1">
-        <div class="list-item">
-          <div class="list-avatar"></div>
-          <p>2024</p>
-          <input type="checkbox" class="checkbox" value="2024" checked>
+      <div class="sidebar1"> <!-- Deuxième barre latérale (droite) -->
+        <div class="list-item"> <!-- Élément de la liste avec un avatar et une case à cocher -->
+          <div class="list-avatar"></div> <!-- Avatar de l'élément de la liste -->
+          <p>2024</p> <!-- Texte représentant l'année -->
+          <input type="checkbox" class="checkbox" value="2024" checked> <!-- Case à cocher avec la valeur 2024 -->
         </div>
-        <div class="list-item">
-          <div class="list-avatar"></div>
-          <p>2023</p>
-          <input type="checkbox" class="checkbox" value="2023" checked>
+        <div class="list-item"> <!-- Deuxième élément de la liste -->
+          <div class="list-avatar"></div> <!-- Avatar de l'élément de la liste -->
+          <p>2023</p> <!-- Texte représentant l'année -->
+          <input type="checkbox" class="checkbox" value="2023" checked> <!-- Case à cocher avec la valeur 2023 -->
         </div>
-        <div class="list-item">
-          <div class="list-avatar"></div>
-          <p>2022</p>
-          <input type="checkbox" class="checkbox" value="2022" checked>
+        <div class="list-item"> <!-- Troisième élément de la liste -->
+          <div class="list-avatar"></div> <!-- Avatar de l'élément de la liste -->
+          <p>2022</p> <!-- Texte représentant l'année -->
+          <input type="checkbox" class="checkbox" value="2022" checked> <!-- Case à cocher avec la valeur 2022 -->
         </div>
       </div>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="script.js"></script> <!-- Lien vers le fichier JavaScript pour les interactions de la page -->
 </body>
 </html>

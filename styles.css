@@ -6,7 +6,6 @@
   gap: 16px; /* Espacement entre les éléments du container */
   padding: 16px; /* Padding autour du contenu dans le container */
 }
-
 /* Style pour la sidebar (barre latérale) */
 .sidebar {
   width: 80px; /* Largeur fixe de la sidebar */
@@ -30,7 +29,6 @@
   gap: 16px; /* Espacement entre les éléments de la sidebar */
   position: relative; /* Position relative pour pouvoir positionner des éléments enfants de manière absolue */
 }
-
 /* Style des boutons dans la sidebar */
 .sidebar button {
   width: 48px; /* Largeur du bouton */
@@ -41,6 +39,22 @@
   color: white; /* Couleur du texte des boutons */
   font-size: 24px; /* Taille du texte des boutons */
   cursor: pointer; /* Curseur en forme de main lors du survol */
+}
+
+/* Style du menu burger qui sera caché par défaut */
+.burger-menu {
+
+  display: none; /* Menu caché par défaut */
+  flex-direction: column; /* Affichage des éléments en colonne */
+  background-color: #f5f5f5; /* Couleur de fond du menu */
+  border-radius: 8px; /* Coins arrondis */
+  position: absolute; /* Position absolue pour le positionner par rapport à son parent */
+  top: 64px; /* Décalage du haut */
+  left: 16px; /* Décalage de la gauche */
+  width: 200px; /* Largeur du menu */
+  padding: 16px; /* Padding interne du menu */
+  gap: 8px; /* Espacement entre les éléments */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre autour du menu */
 }
 
 /* Style des boutons à l'intérieur du menu burger */

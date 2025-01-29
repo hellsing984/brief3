@@ -66,8 +66,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 // Récupérer l'élément de la barre de recherche
-const searchInput = document.getElementById("recherche");
-// URL de l'API, avec ajout du paramètre de recherche pour filtrer les promotions
-const apiUrl = `http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/promotions?search=${encodeURIComponent(query)}`;
+function searchFunction() {
+    var query = document.getElementById('search').value;
+    alert('Vous avez recherché: ' + query);
+}
 
   
