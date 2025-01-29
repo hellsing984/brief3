@@ -147,3 +147,131 @@ body {
   object-fit: cover; /* Garde les proportions tout en remplissant le cadre */
   border-radius: 50%; /* Optionnel : donne un effet arrondi (comme un avatar) */
 }
+/* Conteneur des cartes */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Carte */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 250px; /* Taille de la carte */
+  height: 350px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  transform-style: preserve-3d;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Effet de zoom au survol */
+}
+
+.card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  backface-visibility: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg); /* Retourner la carte lors du clic */
+}
+
+.card-front {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-back {
+  background-color: #f4f4f4;
+  padding: 20px;
+  transform: rotateY(180deg);
+  text-align: center;
+}
+
+/* Style pour le nom de l'apprenant */
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Image du profil */
+.profilePic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Info de promotion */
+.promo {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Liste des compétences */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* Compétence individuelle */
+.skill {
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 20px;
+  color: white;
+}
+
+/* Liens des réseaux sociaux */
+.links a {
+  margin: 0 5px;
+}
+
+.links img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s;
+}
+
+.links a:hover img {
+  transform: scale(1.2); /* Effet de zoom sur les icônes de liens */
+}
+
+/* Extrait de l'apprenant */
+.excerpt {
+  font-size: 0.85rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Effet de visibilité pour le menu burger */
+.burger-menu.visible {
+  display: block;
+}
+
+.burger-menu {
+  display: none;
+}

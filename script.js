@@ -1,65 +1,112 @@
+document.addEventListener('DOMContentLoaded', (event) => {
+  const apprenantsContainer = document.getElementById('apprenant-cards');
+  const burgerButton = document.getElementById('burger-button');
+  const burgerMenu = document.querySelector('.burger-menu');
+  const checkboxes = document.querySelectorAll('.checkbox');
 
-document.addEventListener("DOMContentLoaded", () => {
-  const apiUrl = "http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/apprenants"; // API
-  const container = document.getElementById("apprenant-cards"); // Conteneur des cartes
-  const searchInput = document.querySelector(".search-bar input"); // Barre de recherche
-  const checkboxes = document.querySelectorAll(".sidebar1 .checkbox"); // Filtres des promotions
+  // Fonction pour afficher/masquer le menu burger
+  burgerButton.addEventListener('click', () => {
+      burgerMenu.classList.toggle('visible'); // Ajouter une classe pour afficher/masquer le menu
+  });
 
-  let allApprenants = []; // Stocke les données de l'API
+  // Fonction pour gérer l'état des cases à cocher
+  checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+          // Logique pour afficher/masquer des éléments en fonction de l'état des cases
+          const isChecked = checkbox.checked;
+          const year = checkbox.parentElement.querySelector('p').textContent;
+          if (isChecked) {
+              console.log(`${year} sélectionné`);
+          } else {
+              console.log(`${year} désélectionné`);
+          }
+      });
+  });
 
-  // Récupération des données depuis l'API
-  fetch(apiUrl)
-    .then((response) => {
-      if (!response.ok) throw new Error("Erreur lors de la récupération des données.");
-      return response.json();
-    })
-    .then((data) => {
-      allApprenants = data; // Stocker les données
-      displayApprenants(allApprenants); // Afficher les apprenants
-    })
-    .catch((error) => console.error("Erreur : ", error));
+  // Fetch les données des promotions et les stocker dans une map pour une recherche rapide
+  fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/promotions')
+      .then(response => response.json())
+      .then(promotions => {
+          // Créer une map des promotions pour une recherche rapide
+          const promotionMap = {};
+          promotions.forEach(promotion => {
+              promotionMap[promotion.id] = promotion.slug;
+          });
 
-  // Affiche les apprenants dans le conteneur
-  function displayApprenants(apprenants) {
-    container.innerHTML = ""; // Nettoyer le conteneur
-    if (apprenants.length === 0) {
-      container.innerHTML = "<p>Aucun apprenant trouvé.</p>";
-      return;
-    }
+          // Fetch les compétences et les stocker dans une map pour une recherche rapide
+          fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/competences')
+              .then(response => response.json())
+              .then(competences => {
+                  // Créer une map des compétences pour une recherche rapide
+                  const competencesMap = {};
+                  competences.forEach(competence => {
+                      competencesMap[competence.id] = competence.name;
+                  });
 
-    apprenants.forEach((apprenant) => {
-      const card = document.createElement("div");
-      card.classList.add("apprenant-card"); // Classe pour styliser les cartes
-      card.innerHTML = `
-        <img src="${apprenant.image || "https://via.placeholder.com/100"}" alt="Photo de ${apprenant.nom}">
-        <h3>${apprenant.title.rendered}</h3>
-        <p><strong>Promotion :</strong> ${apprenant.promotion || "Non précisé"}</p>
-        <p><strong>Compétences :</strong> ${apprenant.competences ? apprenant.competences.join(", ") : "Aucune"}</p>
-      `;
-      container.appendChild(card);
-    });
-  }
+                  // Fetch la liste des apprenants avec une limite de 100 par page
+                  fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/apprenants?per_page=100')
+                      .then(response => response.json())
+                      .then(apprenants => {
+                          apprenants.forEach(apprenant => {
+                              // Trouver le nom de la promotion
+                              const promotionId = apprenant.promotions[0]; // Supposer que chaque apprenant a une promotion
+                              const promotionName = promotionMap[promotionId] || 'Unknown';
 
-  // Filtre les apprenants en fonction des critères
-  function filterApprenants() {
-    const searchValue = searchInput.value.toLowerCase(); // Valeur de la recherche
-    const selectedPromotions = Array.from(checkboxes)
-      .filter((checkbox) => checkbox.checked) // Récupère les promotions cochées
-      .map((checkbox) => checkbox.nextElementSibling.textContent);
+                              // Trouver les noms des compétences et attribuer des classes de couleurs
+                              const competencesElements = apprenant.competences.map(skillId => {
+                                  const skillName = competencesMap[skillId] || 'Unknown';
+                                  let colorClass;
+                                  switch(skillName) {
+                                      case 'HTML5':
+                                          colorClass = 'font-semibold bg-red-400';
+                                          break;
+                                      case 'CSS':
+                                          colorClass = 'font-semibold bg-sky-500';
+                                          break;
+                                      case 'TailwindCSS':
+                                          colorClass = 'font-semibold bg-teal-500';
+                                          break;
+                                      case 'JavaScript':
+                                          colorClass = 'font-semibold bg-yellow-500';
+                                          break;
+                                      case 'Figma':
+                                          colorClass = 'font-semibold bg-purple-600';
+                                          break;
+                                      default:
+                                          colorClass = 'font-semibold bg-gray-800';
+                                  }
+                                  return `<span class="skill ${colorClass}">${skillName}</span>`;
+                              });
 
-    const filteredApprenants = allApprenants.filter((apprenant) => {
-      const matchesSearch = apprenant.nom.toLowerCase().includes(searchValue); // Filtre par nom
-      const matchesPromotion =
-        selectedPromotions.length === 0 || selectedPromotions.includes(apprenant.promotion); // Filtre par promotion
+                              // Créer un élément de carte
+                              const card = document.createElement('div');
+                              card.className = 'card';
 
-      return matchesSearch && matchesPromotion;
-    });
+                              // Remplir la carte avec les données de l'apprenant
+                              card.innerHTML = `
+                                  <div class="card-inner">
+                                      <div class="card-front">
+                                          <h2 class="name">${apprenant.nom}<br>${apprenant.prenom}</h2>
+                                          <img class="profilePic" src="${apprenant.image}"/>
+                                          <p class="promo">Promotion: ${promotionName}</p>
+                                          <p class="skills">${competencesElements.join('')}</p>
+                                          <div class="links">
+                                              <a href="${apprenant.urlgit}" target="_blank"><img src="logoGithub.svg"></a>
+                                              <a href="${apprenant.linkedin}" target="_blank"><img src="logoLinkedin.svg"></a>
+                                              <a href="${apprenant.cv}" target="_blank"><img src="logoCV.svg"></a>
+                                              <a href="${apprenant.portfolio}" target="_blank"><img src="logoPortfolio.svg"></a>
+                                          </div>
+                                      </div>
+                                  </div>
+                              `;
 
-    displayApprenants(filteredApprenants);
-  }
-
-  // Événements pour la recherche et les filtres
-  searchInput.addEventListener("input", filterApprenants);
-  checkboxes.forEach((checkbox) => checkbox.addEventListener("change", filterApprenants));
+                              // Ajouter la carte au conteneur
+                              apprenantsContainer.appendChild(card);
+                          });
+                      })
+                      .catch(error => console.error('Erreur:', error)); // Gérer les erreurs pour le fetch des apprenants
+              })
+              .catch(error => console.error('Erreur:', error)); // Gérer les erreurs pour le fetch des compétences
+      })
+      .catch(error => console.error('Erreur:', error)); // Gérer les erreurs pour le fetch des promotions
 });
-
