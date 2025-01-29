@@ -1,9 +1,3 @@
-/* Style global du body : */
-body { 
-  margin: 0; /* Enlève la marge par défaut du navigateur */
-  font-family: Arial, sans-serif; /* Définit la police de caractères */
-  background-color: #bebbbd; /* Définit la couleur de fond de la page */
-}
 
 /* Style pour le container, qui est un conteneur flexible avec un espacement interne et un gap */
 .container {
@@ -112,20 +106,6 @@ body {
   cursor: pointer; /* Curseur en forme de main */
 }
 
-/* Style pour la grille (grid) de cartes */
-.grid {
-  display: grid; /* Utilisation de la mise en page en grille */
-  grid-template-columns: repeat(5, 1fr); /* Définit 5 colonnes de taille égale */
-  gap: 16px; /* Espacement entre les éléments de la grille */
-}
-
-/* Style des cartes dans la grille */
-.card {
-  text-align: center; /* Centre le contenu des cartes */
-  background-color: white; /* Couleur de fond des cartes */
-  border-radius: 8px; /* Coins arrondis */
-  padding: 16px; /* Padding interne des cartes */
-}
 
 /* Style pour la barre de recherche */
 .search-bar {
@@ -141,137 +121,93 @@ body {
   border-radius: 16px; /* Coins arrondis */
   outline: none; /* Pas de contour au focus */
 }
-.apprenant-card img {
-  width: 100px; /* Ajuste la largeur */
-  height: 100px; /* Ajuste la hauteur */
-  object-fit: cover; /* Garde les proportions tout en remplissant le cadre */
-  border-radius: 50%; /* Optionnel : donne un effet arrondi (comme un avatar) */
-}
-/* Conteneur des cartes */
-.grid {
+
+/* Style du conteneur des cartes */
+#apprenant-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   padding: 20px;
+  justify-content: center;
 }
 
-/* Carte */
+/* Style des cartes */
 .card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  width: 100%;
-  max-width: 250px; /* Taille de la carte */
-  height: 350px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-  transform-style: preserve-3d;
-  box-sizing: border-box;
 }
 
 .card:hover {
-  transform: scale(1.05); /* Effet de zoom au survol */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.card-inner {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  backface-visibility: hidden;
-  transition: transform 0.3s ease-in-out;
-}
-
-.card.flipped .card-inner {
-  transform: rotateY(180deg); /* Retourner la carte lors du clic */
-}
-
-.card-front {
-  padding: 20px;
-  text-align: center;
-}
-
-.card-back {
-  background-color: #f4f4f4;
-  padding: 20px;
-  transform: rotateY(180deg);
-  text-align: center;
-}
-
-/* Style pour le nom de l'apprenant */
-.name {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-/* Image du profil */
-.profilePic {
-  width: 80px;
-  height: 80px;
+/* Style de l'image */
+.card .profilePic {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
+  border: 3px solid #007BFF; /* Bleu */
   margin-bottom: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Info de promotion */
-.promo {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 15px;
+/* Style du nom */
+.card .name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
 }
 
-/* Liste des compétences */
-.skills {
+/* Style de la promotion */
+.card .promo {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+/* Style des compétences */
+.card .skills {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 15px;
+  gap: 5px;
 }
 
-/* Compétence individuelle */
-.skill {
-  margin: 5px;
-  padding: 5px 10px;
-  font-size: 0.9rem;
-  border-radius: 20px;
+.card .skill {
+  background: #007BFF; /* Bleu */
   color: white;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 20px;
 }
 
-/* Liens des réseaux sociaux */
-.links a {
-  margin: 0 5px;
+/* Style des liens */
+.card .links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-.links img {
-  width: 20px;
-  height: 20px;
-  transition: transform 0.3s;
+.card .links a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
 }
 
-.links a:hover img {
-  transform: scale(1.2); /* Effet de zoom sur les icônes de liens */
+.card .links img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
 }
 
-/* Extrait de l'apprenant */
-.excerpt {
-  font-size: 0.85rem;
-  color: #444;
-  line-height: 1.4;
-}
-
-/* Effet de visibilité pour le menu burger */
-.burger-menu.visible {
-  display: block;
-}
-
-.burger-menu {
-  display: none;
+.card .links a:hover img {
+  transform: scale(1.1);
 }
