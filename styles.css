@@ -164,12 +164,7 @@ body {
 }
 
 /* Style des cartes dans la grille */
-.card {
-  text-align: center; /* Centre le contenu des cartes */
-  background-color: white; /* Couleur de fond des cartes */
-  border-radius: 8px; /* Coins arrondis */
-  padding: 16px; /* Padding interne des cartes */
-}
+
 .hidden {
   display: none;
 }

@@ -137,18 +137,4 @@ document.addEventListener('DOMContentLoaded', () => {
     filterCards();
 });
 
-/*  barre de recherche*/
-document.getElementById('search').addEventListener('input', function() {
-    let searchValue = this.value.toLowerCase();
-    let cards = document.querySelectorAll('.card');
-
-    cards.forEach(card => {
-        let title = card.getAttribute('data-title').toLowerCase();
-        if (title.includes(searchValue)) {
-            card.classList.remove('hidden');
-        } else {
-            card.classList.add('hidden');
-        }
-    });
-});
 
