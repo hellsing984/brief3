@@ -19,44 +19,40 @@
     </div>
     <div class="main">
       <div class="search-bar">
-        <input type="text" placeholder="Search...">
+        <input type="text" id="search" placeholder="recherche...">
       </div>
-      <div class="title">Liste des Apprenants</div>
-
       <div class="labels">
         <button>compétence</button>
         <button>Label</button>
         <button>Label</button>
         <button>Label</button>
       </div>
-
       <!-- Cartes d'utilisateur -->
-      <div class="grid" id="apprenant-cards">
-        <!-- Les cartes seront générées et insérées ici -->
+     
+        <div class="grid" id="apprenant-cards">
+          <!-- Les cartes générées dynamiquement -->
+          <div class="card" data-year="2024">Lacroix Sylvain (2024)</div>
+          <div class="card" data-year="2023">Dupont Marie (2023)</div>
+          <div class="card" data-year="2022">Martin Paul (2022)</div>
+        </div>
       </div>
-    </div>
-
-    <!-- Barre latérale droite -->
-    <div class="sidebar1">
-      <div class="list-item">
-        <div class="list-avatar"></div>
-        <p>2024</p>
-        <input type="checkbox" class="checkbox" checked>
-      </div>
-      <div class="list-item">
-        <div class="list-avatar"></div>
-        <p>2023</p>
-        <input type="checkbox" class="checkbox" checked>
-      </div>
-      <div class="list-item">
-        <div class="list-avatar"></div>
-        <p>2022</p>
-        <input type="checkbox" class="checkbox" checked>
-      </div>
-      <div class="list-item">
-        <div class="list-avatar"></div>
-        <p></p>
-
+      <!-- Barre latérale droite -->
+      <div class="sidebar1">
+        <div class="list-item">
+          <div class="list-avatar"></div>
+          <p>2024</p>
+          <input type="checkbox" class="checkbox" value="2024" checked>
+        </div>
+        <div class="list-item">
+          <div class="list-avatar"></div>
+          <p>2023</p>
+          <input type="checkbox" class="checkbox" value="2023" checked>
+        </div>
+        <div class="list-item">
+          <div class="list-avatar"></div>
+          <p>2022</p>
+          <input type="checkbox" class="checkbox" value="2022" checked>
+        </div>
       </div>
     </div>
   </div>

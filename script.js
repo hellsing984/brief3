@@ -99,7 +99,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
                                       </div>
                                   </div>
                               `;
-
                               // Ajouter la carte au conteneur
                               apprenantsContainer.appendChild(card);
                           });
@@ -110,3 +109,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
       })
       .catch(error => console.error('Erreur:', error)); // Gérer les erreurs pour le fetch des promotions
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search');
+    const checkboxes = document.querySelectorAll('.checkbox');
+    const cards = document.querySelectorAll('.card');
+  
+    function filterCards() {
+      const searchText = searchInput.value.toLowerCase();
+      const selectedYears = Array.from(checkboxes)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+  
+      cards.forEach(card => {
+        const year = card.getAttribute('data-year');
+        const text = card.textContent.toLowerCase();
+  
+        if (selectedYears.includes(year) && text.includes(searchText)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+    searchInput.addEventListener('input', filterCards);
+    checkboxes.forEach(checkbox => checkbox.addEventListener('change', filterCards));
+  });
+  
