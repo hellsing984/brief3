@@ -162,8 +162,8 @@
 }
 
 .card .skill {
-  background: #007BFF; /* Bleu */
-  color: white;
+  background: gray; /* Bleu */
+  color: rgb(247, 246, 246);
   font-size: 12px;
   padding: 5px 10px;
   border-radius: 20px;
@@ -199,12 +199,12 @@
 .clock-widget {
   position: absolute; /* Positionne l'élément de manière absolue par rapport au parent */
   top: 20px;
-  right: 400px;
+  right: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 500px;
+  width: 150px;
   height: 40px;
   background-color: #f4f4f4;
   border: 2px solid #ccc;
