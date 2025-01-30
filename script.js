@@ -72,3 +72,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
         displayApprenants(filteredApprenants);
     });
 });
+/*petit télé*/ 
+function updateClock() {
+    const now = new Date();
+    const date = now.toLocaleDateString();
+    const time = now.toLocaleTimeString();
+
+    document.getElementById('date').textContent = date;
+    document.getElementById('time').textContent = time;
+  }
+
+  // Met à jour l'horloge toutes les secondes
+  setInterval(updateClock, 1000);
+
+  // Initialise l'horloge au chargement de la page
+  updateClock(); 
