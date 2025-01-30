@@ -194,12 +194,12 @@
 }
 /* petit télé*/
 .clock-widget {
-  display: flex;
+  display:flexbox;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 100px;
+  width: 100px;
+  height: 50px;
   background-color: #f4f4f4;
   border: 2px solid #ccc;
   border-radius: 10px;
