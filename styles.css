@@ -231,3 +231,28 @@
   background-color: #333; /* Gris foncé */
   margin-top: 10px; /* Espace entre les compétences et la barre */
 }
+#competence-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.competence-button {
+  padding: 10px 15px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+.competence-button:hover {
+  background-color: #bbb;
+}
+
+.competence-button.active {
+  background-color: #4CAF50;
+  color: white;
+}

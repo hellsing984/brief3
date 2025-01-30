@@ -25,15 +25,17 @@
         <input type="text" id="search" placeholder="Rechercher un apprenant..."> <!-- Champ de texte pour la recherche -->
       </div>
       <div class="title">Trombinoscope</div> <!-- Titre principal de la page -->
-      <div class="labels"> <!-- Liste de labels sous forme de boutons -->
-        <button>compétence</button>
-        <button>Css3</button>
-        <button>Html5</button>
-        <button>Figma</button>
-        <button>Javascript</button>
-        <button>Tailwind</button>
-      </div> 
-      <div class="horizontal-bar"></div>
+      <div id="competence-filters">
+        <button class="competence-button" data-competence="Html5">Html5</button>
+        <button class="competence-button" data-competence="Css3">CSS3</button>
+        <button class="competence-button" data-competence="Javascript">Javascript</button>
+        <button class="competence-button" data-competence="Tailwind">Tailwind</button>
+        <button class="competence-button" data-competence="Figma">Figma</button>
+        <button class="competence-button" data-competence="Bootstrap">Bootstrap</button>
+        <button class="competence-button" data-competence="Php">Php</button>
+        <button class="competence-button" data-competence="Symfony">Symfony</button>
+    </div>
+    <div class="horizontal-bar"></div>
       <!-- Cartes d'utilisateur -->
     <div class="grid" id="apprenant-cards"></div> <!-- Grille pour afficher des cartes d'utilisateurs -->
       </div>
@@ -51,7 +53,7 @@
         </div>
         <div class="list-item"> <!-- Troisième élément de la liste -->
           <div class="list-avatar"></div> <!-- Avatar de l'élément de la liste -->
-          <p>2022-</p> <!-- Texte représentant l'année -->
+          <p>2022</p> <!-- Texte représentant l'année -->
           <input type="checkbox" class="checkbox" value="2022" checked> <!-- Case à cocher avec la valeur 2022 -->
         </div>
       </div>
