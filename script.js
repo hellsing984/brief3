@@ -1,16 +1,20 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const apprenantsContainer = document.getElementById('apprenant-cards');
     const searchInput = document.getElementById('search');
+    const checkboxes = document.querySelectorAll('.checkbox'); // Sélection des cases à cocher
     let apprenantsData = []; // Stocker les données des apprenants
-    let promotionMap = {}; // Définir promotionMap dans le scope global
-    let competencesMap = {}; // Définir competencesMap dans le scope global
+    let promotionMap = {}; 
+    let competencesMap = {}; 
 
-    // Fetch les données des promotions et les stocker dans une map pour une recherche rapide
+    // Récupération des données des promotions et stockage des années associées
     fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/promotions')
         .then(response => response.json())
         .then(promotions => {
             promotions.forEach(promotion => {
-                promotionMap[promotion.id] = promotion.slug;
+                const year = promotion.slug.match(/\d{4}/); // Extraction de l'année depuis le slug
+                if (year) {
+                    promotionMap[promotion.id] = year[0]; // Stocke l'année associée à l'ID
+                }
             });
 
             fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/competences')
@@ -23,8 +27,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/apprenants?per_page=100')
                         .then(response => response.json())
                         .then(apprenants => {
-                            apprenantsData = apprenants; // Stocker les données des apprenants pour le filtrage
-                            displayApprenants(apprenants); // Afficher les apprenants initiaux
+                            apprenantsData = apprenants;
+                            filterAndDisplayApprenants(); // Afficher les apprenants selon le filtre
                         })
                         .catch(error => console.error('Erreur:', error));
                 })
@@ -32,15 +36,33 @@ document.addEventListener('DOMContentLoaded', (event) => {
         })
         .catch(error => console.error('Erreur:', error));
 
+    // Fonction pour afficher les apprenants filtrés
+    function filterAndDisplayApprenants() {
+        // Récupérer les années sélectionnées
+        const selectedYears = Array.from(checkboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value);
+
+        // Filtrer les apprenants en fonction des années sélectionnées
+        const filteredApprenants = apprenantsData.filter(apprenant => {
+            const promotionId = apprenant.promotions[0]; // ID de la promotion
+            const promotionYear = promotionMap[promotionId]; // Récupérer l'année associée
+            return selectedYears.includes(promotionYear); // Vérifier si l'année est cochée
+        });
+
+        // Afficher les apprenants filtrés
+        displayApprenants(filteredApprenants);
+    }
+
     // Fonction pour afficher les apprenants
     function displayApprenants(apprenants) {
         apprenantsContainer.innerHTML = ''; // Vider le conteneur
         apprenants.forEach(apprenant => {
             const promotionId = apprenant.promotions[0];
-            const promotionName = promotionMap[promotionId] || 'Unknown';
+            const promotionYear = promotionMap[promotionId] || 'Inconnue';
 
             const competencesElements = apprenant.competences.map(skillId => {
-                const skillName = competencesMap[skillId] || 'Unknown';
+                const skillName = competencesMap[skillId] || 'Inconnue';
                 return `<span class="skill">${skillName}</span>`;
             });
 
@@ -50,7 +72,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             card.innerHTML = `
                 <h2 class="name">${apprenant.title.rendered}</h2>
                 <img class="profilePic" src="${apprenant.image}"/>
-                <p class="promo">Promotion: ${promotionName}</p>
+                <p class="promo">Promotion: ${promotionYear}</p>
                 <p class="skills">${competencesElements.join('')}</p>
                 <div class="links">
                     <a href="${apprenant.urlgit}" target="_blank"><img src="image/gith.png"></a>
@@ -62,6 +84,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
             apprenantsContainer.appendChild(card);
         });
     }
+
+    // Ajouter un écouteur d'événements sur les cases à cocher
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', filterAndDisplayApprenants);
+    });
 
     // Écouteur d'événement pour la recherche
     searchInput.addEventListener('input', function() {
@@ -81,7 +108,6 @@ function updateClock() {
     document.getElementById('date').textContent = date;
     document.getElementById('time').textContent = time;
   }
-
   // Met à jour l'horloge toutes les secondes
   setInterval(updateClock, 1000);
 
