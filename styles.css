@@ -193,24 +193,26 @@
   transform: scale(1.1);
 }
 /* petit télé*/
+.parent {
+  position: relative; /* Le parent a une position relative */
+}
 .clock-widget {
+  position: absolute; /* Positionne l'élément de manière absolue par rapport au parent */
+  top: 20px;
+  right: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 600px;
+  width: 500px;
   height: 40px;
   background-color: #f4f4f4;
   border: 2px solid #ccc;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
-
-  position: fixed; /* Fixe l'élément à une position sur l'écran */
-  right: 400px; /* Le place à 20px du bord droit */
-  top: 20px; /* Le place à 20px du haut */
-
 }
+
 #date {
   font-size: 16px;
   color: #333;
@@ -221,7 +223,7 @@
   font-weight: bold;
   color: #000;
 }
-
+/* bare gris */
 .horizontal-bar {
   display: flex;
   width: 100%;
