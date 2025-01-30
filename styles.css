@@ -233,26 +233,46 @@
 }
 #competence-filters {
   display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
   flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  justify-content: center;
 }
 
 .competence-button {
-  padding: 10px 15px;
-  background-color: #ddd;
-  border: none;
-  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333;
+  background: linear-gradient(135deg, #f0f0f0, #d9d9d9);
+  border: 2px solid transparent;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
+/* Effet de survol */
 .competence-button:hover {
-  background-color: #bbb;
+  background: linear-gradient(135deg, #d9d9d9, #c0c0c0);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
+/* Bouton actif (sélectionné) */
 .competence-button.active {
-  background-color: #4CAF50;
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
   color: white;
+  border: 2px solid #2E7D32;
+  box-shadow: 4px 4px 10px rgba(46, 125, 50, 0.4);
+  transform: scale(1.05);
+}
+
+/* Effet de clic */
+.competence-button:active {
+  transform: scale(0.95);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
