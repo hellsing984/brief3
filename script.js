@@ -84,7 +84,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             apprenantsContainer.appendChild(card);
         });
     }
-
     // Ajouter un écouteur d'événements sur les cases à cocher
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', filterAndDisplayApprenants);
@@ -104,7 +103,6 @@ function updateClock() {
     const now = new Date();
     const date = now.toLocaleDateString();
     const time = now.toLocaleTimeString();
-
     document.getElementById('date').textContent = date;
     document.getElementById('time').textContent = time;
   }
