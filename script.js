@@ -64,11 +64,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
         })
         .catch(error => console.error('Erreur:', error)); // Gérer les erreurs pour le fetch des promotions
 });
-
-// Récupérer l'élément de la barre de recherche
-function searchFunction() {
-    var query = document.getElementById('search').value;
-    alert('Vous avez recherché: ' + query);
-}
+/*petit télé */ 
+function updateClock() {
+    const now = new Date();
+    const date = now.toLocaleDateString();
+    const time = now.toLocaleTimeString();
+  
+    document.getElementById('date').textContent = date;
+    document.getElementById('time').textContent = time;
+  }
+  
+  // Met à jour l'horloge toutes les secondes
+  setInterval(updateClock, 1000);
+  
+  // Initialise l'horloge au chargement de la page
+  updateClock();
+  
 
   
