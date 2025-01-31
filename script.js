@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let selectedCompetences = new Set(); // Stocke les compétences activées
 
     // Récupération des compétences
-    fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/competences')
+    fetch('https://api-trombi.webedy.fr/wp-json/wp/v2/competences')
         .then(response => response.json())
         .then(competences => {
             competences.forEach(competence => {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
 
             // Récupération des promotions
-            return fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/promotions');
+            return fetch('https://api-trombi.webedy.fr/wp-json/wp/v2/promotions');
         })
         .then(response => response.json())
         .then(promotions => {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
 
             // Récupération des apprenants
-            return fetch('http://portfolios.ruki5964.odns.fr/wp-json/wp/v2/apprenants?per_page=100');
+            return fetch('https://api-trombi.webedy.fr/wp-json/wp/v2/apprenants?per_page=100');
         })
         .then(response => response.json())
         .then(apprenants => {
